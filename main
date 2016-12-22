@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import time
+
+from cabinet1 import all_door as door1
+from cabinet2 import all_door as door2
+
+def run(func, times = 1):
+	start = time.clock()
+	map(lambda i: func(), xrange(times))
+	end = time.clock()
+	return end - start
+
+if __name__ == '__main__':
+	print '%ss' % run(lambda: door1(100, 100)('close'))
+	print '%ss' % run(lambda: door2(100, 100)('close'))
